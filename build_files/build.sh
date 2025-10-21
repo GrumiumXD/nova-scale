@@ -9,8 +9,18 @@ set -ouex pipefail
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
+dnf5 -y copr enable yalter/niri
+dnf5 -y copr enable ulysg/xwayland-satellite 
+
+dnf5 -y config-manager setopt "terra".enabled=true
+
 # this installs a package from fedora repos
-dnf5 install -y tmux 
+dnf5 install -y niri ghostty xwayland-satellite
+
+dnf5 -y config-manager setopt "terra".enabled=false
+
+dnf5 -y copr disable yalter/niri
+dnf5 -y copr disable ulysg/xwayland-satellite 
 
 # Use a COPR Example:
 #
@@ -21,4 +31,4 @@ dnf5 install -y tmux
 
 #### Example for enabling a System Unit File
 
-systemctl enable podman.socket
+# systemctl enable podman.socket
