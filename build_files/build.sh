@@ -11,16 +11,18 @@ set -ouex pipefail
 
 dnf5 -y copr enable yalter/niri
 dnf5 -y copr enable ulysg/xwayland-satellite 
+dnf5 -y copr enable avengemedia/dms 
 
 dnf5 -y config-manager setopt "terra".enabled=true
 
 # this installs a package from fedora repos
-dnf5 install -y niri ghostty xwayland-satellite
+dnf5 install -y niri ghostty xwayland-satellite dms
 
 dnf5 -y config-manager setopt "terra".enabled=false
 
 dnf5 -y copr disable yalter/niri
 dnf5 -y copr disable ulysg/xwayland-satellite 
+dnf5 -y copr disable avengemedia/dms 
 
 IMAGE_PRETTY_NAME="Nova Scale"
 sed -i "s|^PRETTY_NAME=.*|PRETTY_NAME=\"${IMAGE_PRETTY_NAME} (Version: ${VERSION})\"|" /usr/lib/os-release
