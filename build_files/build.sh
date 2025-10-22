@@ -22,6 +22,9 @@ dnf5 -y config-manager setopt "terra".enabled=false
 dnf5 -y copr disable yalter/niri
 dnf5 -y copr disable ulysg/xwayland-satellite 
 
+IMAGE_PRETTY_NAME="Nova Scale"
+sed -i "s|^PRETTY_NAME=.*|PRETTY_NAME=\"${IMAGE_PRETTY_NAME} (Version: ${VERSION})\"|" /usr/lib/os-release
+
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
