@@ -2,38 +2,39 @@
 
 set -ouex pipefail
 
-### Install packages
+COPR_REPOS=(
+    "yalter/niri"
+    "ulysg/xwayland-satellite"
+    "avengemedia/dms"
+)
 
-# Packages can be installed from any enabled yum repo on the image.
-# RPMfusion repos are available by default in ublue main images
-# List of rpmfusion packages can be found here:
-# https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
+PACKAGES=(
+    "niri"
+    "dms"
+    "xwayland-satellite"
+    "mate-polkit"
+    "ghostty"
+)
 
-dnf5 -y copr enable yalter/niri
-dnf5 -y copr enable ulysg/xwayland-satellite 
-dnf5 -y copr enable avengemedia/dms 
+# enable copr repos
+for repo in "${COPR_REPOS[@]}"; do
+    dnf5 -y copr enable "$repo"
+done
 
-dnf5 -y config-manager setopt "terra".enabled=true
+# install packages
+dnf5 -y install ${PACKAGES[@]}
 
-# this installs a package from fedora repos
-dnf5 install -y niri ghostty xwayland-satellite dms
+# disable copr repos
+for repo in "${COPR_REPOS[@]}"; do
+    dnf5 -y copr remove "$repo"
+done
 
-dnf5 -y config-manager setopt "terra".enabled=false
+# Copy Files to Container
+rsync -rvK /ctx/system_files/ /
 
-dnf5 -y copr disable yalter/niri
-dnf5 -y copr disable ulysg/xwayland-satellite 
-dnf5 -y copr disable avengemedia/dms 
-
+# set pretty name
 IMAGE_PRETTY_NAME="Nova Scale"
-sed -i "s|^PRETTY_NAME=.*|PRETTY_NAME=\"${IMAGE_PRETTY_NAME} (Version: ${VERSION})\"|" /usr/lib/os-release
+sed -i \
+    "s|^\(PRETTY_NAME=\)\"[^\"(]*\( *(Version: [^)]*)\)\"|\1\"${IMAGE_PRETTY_NAME}\2\"|" \
+    /usr/lib/os-release
 
-# Use a COPR Example:
-#
-# dnf5 -y copr enable ublue-os/staging
-# dnf5 -y install package
-# Disable COPRs so they don't end up enabled on the final image:
-# dnf5 -y copr disable ublue-os/staging
-
-#### Example for enabling a System Unit File
-
-# systemctl enable podman.socket
