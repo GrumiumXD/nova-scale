@@ -13,6 +13,7 @@ PACKAGES=(
     "dms"
     "xwayland-satellite"
     "mate-polkit"
+    "caja"
     "ghostty"
 )
 
@@ -29,12 +30,15 @@ for repo in "${COPR_REPOS[@]}"; do
     dnf5 -y copr remove "$repo"
 done
 
+# install zed editor
+source /ctx/build_files/install_zed.sh
+
 # Copy Files to Container
 rsync -rvK /ctx/system_files/ /
 
 # set pretty name
 IMAGE_PRETTY_NAME="Nova Scale"
 sed -i \
-    "s|^\(PRETTY_NAME=\)\"[^\"(]*\( *(Version: [^)]*)\)\"|\1\"${IMAGE_PRETTY_NAME}\2\"|" \
+    "s|^\(PRETTY_NAME=\)\"[^\"(]*\( *(Version: [^)]*)\)\"|\1\"${IMAGE_PRETTY_NAME} \2\"|" \
     /usr/lib/os-release
 
