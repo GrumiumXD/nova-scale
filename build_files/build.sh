@@ -6,12 +6,14 @@ COPR_REPOS=(
     "yalter/niri"
     "ulysg/xwayland-satellite"
     "avengemedia/dms"
+    "errornointernet/quickshell"
 )
 
 PACKAGES=(
     "niri"
     "dms"
     "qt6ct"
+    "kf6-qqc2-desktop-style"
     "adw-gtk3-theme"
     "xwayland-satellite"
     "mate-polkit"
