@@ -11,6 +11,8 @@ COPR_REPOS=(
 PACKAGES=(
     "niri"
     "dms"
+    "qt6ct"
+    "adw-gtk3-theme"
     "xwayland-satellite"
     "mate-polkit"
     "caja"
@@ -32,6 +34,9 @@ done
 
 # install zed editor
 /ctx/build_files/install_zed.sh
+
+# install delight icon set
+/ctx/build_files/install_delight_icons.sh
 
 # Copy Files to Container
 rsync -rvK /ctx/system_files/ /
