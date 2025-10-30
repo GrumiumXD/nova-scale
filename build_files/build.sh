@@ -31,7 +31,7 @@ for repo in "${COPR_REPOS[@]}"; do
 done
 
 # install zed editor
-source /ctx/build_files/install_zed.sh
+/ctx/build_files/install_zed.sh
 
 # Copy Files to Container
 rsync -rvK /ctx/system_files/ /
@@ -42,3 +42,5 @@ sed -i \
     "s|^\(PRETTY_NAME=\)\"[^\"(]*\( *(Version: [^)]*)\)\"|\1\"${IMAGE_PRETTY_NAME} \2\"|" \
     /usr/lib/os-release
 
+# Regenerate initramfs
+/ctx/build_files/initramfs.sh
