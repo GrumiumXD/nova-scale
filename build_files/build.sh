@@ -17,7 +17,8 @@ PACKAGES=(
     "adw-gtk3-theme"
     "xwayland-satellite"
     "mate-polkit"
-    "caja"
+    "caja" # mate file manager
+    "engrampa" # mate archiver
     "ghostty"
 )
 
