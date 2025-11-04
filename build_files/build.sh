@@ -20,6 +20,7 @@ PACKAGES=(
     "caja" # mate file manager
     "engrampa" # mate archiver
     "ghostty"
+    "rustup"
 )
 
 # enable copr repos
