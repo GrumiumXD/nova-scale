@@ -6,7 +6,6 @@ COPR_REPOS=(
     "yalter/niri"
     "ulysg/xwayland-satellite"
     "avengemedia/dms"
-    "errornointernet/quickshell"
 )
 
 PACKAGES=(
@@ -16,7 +15,6 @@ PACKAGES=(
     "kf6-qqc2-desktop-style"
     "adw-gtk3-theme"
     "xwayland-satellite"
-    "mate-polkit"
     "caja" # mate file manager
     "engrampa" # mate archiver
     "ghostty"
