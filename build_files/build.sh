@@ -6,6 +6,7 @@ COPR_REPOS=(
     "yalter/niri"
     "ulysg/xwayland-satellite"
     "avengemedia/dms"
+    "sneexy/zen-browser"
 )
 
 PACKAGES=(
@@ -17,6 +18,7 @@ PACKAGES=(
     "xwayland-satellite"
     "caja" # mate file manager
     "engrampa" # mate archiver
+    "zen-browser"
     "ghostty"
     "rustup"
 )
