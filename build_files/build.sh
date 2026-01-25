@@ -6,7 +6,6 @@ COPR_REPOS=(
     "yalter/niri"
     "ulysg/xwayland-satellite"
     "avengemedia/dms"
-    "sneexy/zen-browser"
 )
 
 PACKAGES=(
@@ -18,7 +17,6 @@ PACKAGES=(
     "xwayland-satellite"
     "caja" # mate file manager
     "engrampa" # mate archiver
-    "zen-browser"
     "ghostty"
     "rustup"
 )
@@ -38,6 +36,9 @@ done
 
 # install zed editor
 /ctx/build_files/install_zed.sh
+
+# install zen editor
+/ctx/build_files/install_zen.sh
 
 # install delight icon set
 /ctx/build_files/install_delight_icons.sh
