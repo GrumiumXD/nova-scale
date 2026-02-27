@@ -14,7 +14,7 @@ tar xf "/tmp/zed-linux-x86_64.tar.gz" -C $INSTALL_LOCATION
 
 echo "Install files"
 ln -sf "$INSTALL_LOCATION/zed.app/bin/zed" /usr/bin/zedit
-cp "$INSTALL_LOCATION/zed.app/share/applications/zed.desktop" /usr/share/applications/dev.zed.Zed.desktop
+cp "$INSTALL_LOCATION/zed.app/share/applications/dev.zed.Zed.desktop" /usr/share/applications/dev.zed.Zed.desktop
 sed -i "s|Icon=zed|Icon=$INSTALL_LOCATION/zed.app/share/icons/hicolor/512x512/apps/zed.png|g" /usr/share/applications/dev.zed.Zed.desktop
 sed -i "s|Exec=zed|Exec=$INSTALL_LOCATION/zed.app/libexec/zed-editor|g" /usr/share/applications/dev.zed.Zed.desktop
 
