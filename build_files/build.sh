@@ -34,9 +34,6 @@ for repo in "${COPR_REPOS[@]}"; do
     dnf5 -y copr remove "$repo"
 done
 
-# install zed editor
-/ctx/build_files/install_zed.sh
-
 # install gram editor
 /ctx/build_files/install_gram.sh
 
