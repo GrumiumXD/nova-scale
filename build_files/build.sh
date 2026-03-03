@@ -35,6 +35,9 @@ for repo in "${COPR_REPOS[@]}"; do
 done
 
 # install gram editor
+/ctx/build_files/install_rcl.sh
+
+# install gram editor
 /ctx/build_files/install_gram.sh
 
 # install zen editor
