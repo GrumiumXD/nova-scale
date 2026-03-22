@@ -23,5 +23,4 @@ tar xf "/tmp/gram-linux-x86_64.tar.gz" -C $INSTALL_LOCATION
 echo "Setup exectuable and desktop file"
 ln -sf "$INSTALL_LOCATION/gram.app/bin/gram" /usr/bin/gram
 cp "$INSTALL_LOCATION/gram.app/share/applications/gram.desktop" /usr/share/applications/gram.desktop
-sed -i "s|Icon=gram|Icon=$INSTALL_LOCATION/gram.app/share/icons/hicolor/512x512/apps/gram.png|g" /usr/share/applications/gram.desktop
-
+sed -i "s|Icon=app.liten.Gram|Icon=$INSTALL_LOCATION/gram.app/share/icons/hicolor/scalable/apps/app.liten.Gram.svg|g" /usr/share/applications/gram.desktop
