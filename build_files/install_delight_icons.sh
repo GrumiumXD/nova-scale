@@ -2,7 +2,7 @@
 
 set -ouex pipefail
 
-GIT_URL=https://github.com/SethStormR/Delight-2.git
+GIT_URL=https://codeberg.org/StormRosenaa/Delight-2.git
 
 echo "Cloning repo"
 git clone $GIT_URL /tmp/delight2
