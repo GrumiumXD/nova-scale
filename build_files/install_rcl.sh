@@ -14,3 +14,4 @@ RCL_URL=$(curl -s "https://api.github.com/repos/ruuda/rcl/releases" |
 
 echo "Downloading/installing rcl"
 curl -fL $RCL_URL > /usr/bin/rcl
+chmod a+x /usr/bin/rcl
